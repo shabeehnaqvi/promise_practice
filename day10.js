@@ -42,3 +42,23 @@ promise
 
 // finally will be executed everytime either if passes or fails
 
+
+var promise = new Promise(function myfun(resolve, reject) {
+  a = 1;
+  b = 2;
+  if (a == b)  setTimeout(() => { resolve("I am in resolve"); }, 3000); 
+  else throw new Error("invlid"); 
+});
+
+promise
+  .then(function new_fun(res) {
+    console.log(res);
+  })
+  .catch(function new_fun(err) {
+    console.log(err.message);
+  })
+  .finally(function new_fun(err) {
+    console.log("Finally i can do this");
+  });
+
+// finally will be executed everytime either if passes or fails
